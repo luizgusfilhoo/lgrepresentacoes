@@ -1,2 +1,3 @@
 User-agent: *
-Disallow: /
+Allow: /
+Sitemap: https://luizgusfilhoo.github.io/lgrepresentacoes/sitemap.xml
