@@ -81,7 +81,7 @@ if (tabsRail) {
   document.fonts?.ready.then(() => positionTabCursor(previewTab || selectedTab(), true));
 }
 
-const sectionLinks = [...document.querySelectorAll('#menu a[href^="/#"]')];
+const sectionLinks = [...document.querySelectorAll('#menu a[href^="#"]')];
 const sections = sectionLinks.map(link => ({ link, section: document.getElementById(link.hash.slice(1)) })).filter(item => item.section);
 let navUpdateQueued = false;
 const updateCurrentSection = () => {
