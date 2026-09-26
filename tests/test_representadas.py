@@ -50,6 +50,12 @@ class RepresentadasTests(unittest.TestCase):
         selectors = self.page.xpath('//*[@aria-label="Selecionar representada"]//button')
         self.assertEqual([b.get("aria-controls") for b in selectors], [f"marca-{b[0]}" for b in BRANDS])
         self.assertTrue(all(b.get("aria-label") for b in selectors))
+        for button, (_, name, logo, _, _) in zip(selectors, BRANDS):
+            with self.subTest(selector=name):
+                self.assertEqual(button.xpath('.//span[contains(@class,"selector-name")]/text()'), [name])
+                self.assertEqual(button.xpath('.//span[contains(@class,"selector-logo")]//img/@src'), [f"./assets/{logo}"])
+                self.assertEqual(button.xpath('.//span[contains(@class,"selector-logo")]//img/@alt'), [''])
+        self.assertFalse(self.page.xpath('//article[contains(@class,"brand-feature")]//h3//img'))
         for label in ("Representada anterior", "Próxima representada"):
             self.assertEqual(len(self.page.xpath(f'//button[@aria-label="{label}"]')), 1)
         self.assertIn('src="./marcas.js"', (ROOT / "index.html").read_text(encoding="utf-8"))
