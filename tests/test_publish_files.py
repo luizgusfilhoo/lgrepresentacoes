@@ -23,7 +23,7 @@ class PublishTests(unittest.TestCase):
             with self.subTest(ref=ref):
                 self.assertTrue(item.exists())
                 self.assertTrue((ROOT/'dist'/ref[2:]).exists())
-        for item in ('index.html','style.css','main.js','marcas.js','caruaru-map.js','robots.txt','sobre/index.html','assets/vendor/leaflet/leaflet.js','assets/vendor/leaflet/leaflet.css'):
+        for item in ('index.html','style.css','main.js','marcas.js','pernambuco-map.js','robots.txt','sobre/index.html','assets/vendor/leaflet/leaflet.js','assets/vendor/leaflet/leaflet.css'):
             with self.subTest(item=item):
                 self.assertEqual((ROOT/item).read_bytes(), (ROOT/'dist'/item).read_bytes())
 

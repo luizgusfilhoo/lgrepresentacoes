@@ -3,7 +3,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
-const files = ['index.html', 'style.css', 'main.js', 'marcas.js', 'caruaru-map.js', 'robots.txt', 'sitemap.xml', '.nojekyll'];
+const files = ['index.html', 'style.css', 'main.js', 'marcas.js', 'pernambuco-map.js', 'robots.txt', 'sitemap.xml', '.nojekyll'];
 for (const file of files) {
   await mkdir(join(root, 'dist', dirname(file)), { recursive: true });
   await cp(join(root, file), join(root, 'dist', file));

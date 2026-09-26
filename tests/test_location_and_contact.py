@@ -32,11 +32,13 @@ class LocationContactTests(unittest.TestCase):
         self.assertIn('8h às 12h',content)
 
     def test_pernambuco_map_has_text_fallback(self):
-        map_area = PAGE.get_element_by_id('caruaru-map')
+        map_area = PAGE.get_element_by_id('pernambuco-map')
         self.assertNotIn('Caruaru',map_area.text_content())
         self.assertIn('Pernambuco',map_area.text_content())
         self.assertIn('www.openstreetmap.org', ''.join(PAGE.xpath('//a/@href')))
-        self.assertTrue((ROOT / 'caruaru-map.js').is_file())
+        self.assertTrue((ROOT / 'pernambuco-map.js').is_file())
+        self.assertNotIn('Caruaru', (ROOT / 'pernambuco-map.js').read_text())
+        self.assertNotIn('L.marker(', (ROOT / 'pernambuco-map.js').read_text())
         self.assertTrue((ROOT / 'assets/vendor/leaflet/leaflet.js').is_file())
         self.assertTrue((ROOT / 'assets/vendor/leaflet/leaflet.css').is_file())
 

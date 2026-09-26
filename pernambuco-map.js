@@ -1,5 +1,5 @@
 (() => {
-  const el = document.getElementById('caruaru-map');
+  const el = document.getElementById('pernambuco-map');
   if (!el) return;
   let started = false;
   function initialize() {
