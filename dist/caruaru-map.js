@@ -13,13 +13,12 @@
       canvas.className = 'map-canvas';
       canvas.setAttribute('aria-hidden', 'true');
       el.append(canvas);
-      const center = [-8.29, -35.97];
-      const map = L.map(canvas, { center, zoom: 10, scrollWheelZoom: false, dragging: true });
+      const center = [-8.41, -37.59];
+      const map = L.map(canvas, { center, zoom: 7, scrollWheelZoom: false, dragging: true });
       L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 17,
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       }).addTo(map);
-      L.marker(center).addTo(map).bindPopup('Região de Caruaru, Pernambuco');
       map.whenReady(() => requestAnimationFrame(() => map.invalidateSize()));
     };
     document.head.append(script);

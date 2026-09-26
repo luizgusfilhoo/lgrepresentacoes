@@ -31,9 +31,9 @@ class LocationContactTests(unittest.TestCase):
         self.assertIn('8h às 16h',content)
         self.assertIn('8h às 12h',content)
 
-    def test_caruaru_map_has_text_fallback(self):
+    def test_pernambuco_map_has_text_fallback(self):
         map_area = PAGE.get_element_by_id('caruaru-map')
-        self.assertIn('Caruaru',map_area.text_content())
+        self.assertNotIn('Caruaru',map_area.text_content())
         self.assertIn('Pernambuco',map_area.text_content())
         self.assertIn('www.openstreetmap.org', ''.join(PAGE.xpath('//a/@href')))
         self.assertTrue((ROOT / 'caruaru-map.js').is_file())
