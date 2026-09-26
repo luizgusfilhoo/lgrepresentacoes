@@ -570,3 +570,13 @@ h1,h2{text-wrap:balance}
 .map-fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:20px;text-align:center;color:var(--navy)}
 .map-fallback strong{font-size:18px}.map-fallback span{font-size:13px}
 @media(max-width:760px){.location-grid{grid-template-columns:1fr}.location-panel{grid-template-rows:auto 230px}.about-journey .about,.about-journey .beliefs-section,.about-journey .values-section,.about-journey .future-section{padding-block:57px}#contato{padding-block:60px}}
+
+/* Small brand signature beside each represented name */
+.brand-feature-body h3{display:flex;align-items:center;gap:11px;min-width:0}
+.brand-feature-body h3>span:first-child{min-width:0}
+.brand-title-logo{flex:0 0 54px;width:54px;height:38px;padding:5px;display:grid;place-items:center;background:#fff;border:1px solid #e6eaf0;border-radius:4px}
+.brand-title-logo img{display:block;width:100%;height:100%;object-fit:contain;filter:none}
+#marca-dryko .brand-title-logo{background:#ff0002;border-color:#ff0002}
+#marca-amatools .brand-title-logo{background:#20313a;border-color:#20313a}
+#marca-jlobato .brand-title-logo{background:#333;border-color:#333}
+@media(max-width:480px){.brand-feature-body h3{gap:8px}.brand-title-logo{flex-basis:44px;width:44px;height:33px;padding:4px}}
