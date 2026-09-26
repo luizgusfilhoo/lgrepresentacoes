@@ -1,5 +1,6 @@
 """GitHub Pages deploy metadata and local mirror are complete."""
 from pathlib import Path
+from urllib.parse import urlsplit
 import unittest
 from lxml import html
 
@@ -15,14 +16,21 @@ class PublishTests(unittest.TestCase):
         self.assertIn('../#sobre', redirect)
         self.assertNotIn('noindex', redirect)
 
+    def test_map_styles_are_fresh_and_positioned(self):
+        page = html.fromstring((ROOT/'index.html').read_text())
+        self.assertEqual(page.xpath('//link[contains(@href,"style.css?")]/@rel'), ['stylesheet'])
+        css = (ROOT/'style.css').read_text()
+        self.assertIn('.pernambuco-map{position:relative', css)
+        self.assertIn('.map-canvas{position:absolute', css)
+
     def test_local_references_and_dist_match(self):
         page = html.fromstring((ROOT/'index.html').read_text())
         for ref in page.xpath('//script/@src | //link/@href | //img/@src | //a/@href'):
             if not ref.startswith('./'): continue
-            item = ROOT/ref[2:]
+            item = ROOT/urlsplit(ref).path[2:]
             with self.subTest(ref=ref):
                 self.assertTrue(item.exists())
-                self.assertTrue((ROOT/'dist'/ref[2:]).exists())
+                self.assertTrue((ROOT/'dist'/urlsplit(ref).path[2:]).exists())
         for item in ('index.html','style.css','main.js','marcas.js','pernambuco-map.js','robots.txt','sobre/index.html','assets/vendor/leaflet/leaflet.js','assets/vendor/leaflet/leaflet.css'):
             with self.subTest(item=item):
                 self.assertEqual((ROOT/item).read_bytes(), (ROOT/'dist'/item).read_bytes())
