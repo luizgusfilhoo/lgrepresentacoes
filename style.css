@@ -101,14 +101,7 @@ h1 em,h2 em{font-style:normal;color:var(--yellow)}
 .marquee-logo[href="#marca-dryko"],.logo-group-copy .marquee-logo:nth-child(2),#marca-dryko .brand-feature-mark{background:#ff0002;border-color:#ff0002}
 .marquee-logo[href="#marca-amatools"],.logo-group-copy .marquee-logo:nth-child(3),#marca-amatools .brand-feature-mark{background:#20313a;border-color:#20313a}
 .marquee-logo[href="#marca-jlobato"],.logo-group-copy .marquee-logo:nth-child(9),#marca-jlobato .brand-feature-mark{background:#333;border-color:#333}
-.marquee-logo[href="#marca-dryko"] img,.logo-group-copy .marquee-logo:nth-child(2) img{max-height:116px}
 .marquee-logo[href="#marca-amatools"] img,.logo-group-copy .marquee-logo:nth-child(3) img,.marquee-logo[href="#marca-jlobato"] img,.logo-group-copy .marquee-logo:nth-child(9) img{max-width:100%}
-.marquee-logo[href="#marca-lamesa"],.marquee-logo[href="#marca-botafogo"],.logo-group-copy .marquee-logo:nth-child(5),.logo-group-copy .marquee-logo:nth-child(8){overflow:hidden}
-.marquee-logo[href="#marca-lamesa"] img,.logo-group-copy .marquee-logo:nth-child(5) img{width:100%;height:100%;max-width:none;max-height:none;object-fit:contain;transform:scale(1.18)}
-.marquee-logo[href="#marca-botafogo"] img,.logo-group-copy .marquee-logo:nth-child(8) img{width:100%;height:100%;max-width:none;max-height:none;object-fit:contain;transform:scale(1.45)}
-.marquee-logo[href="#marca-atlas"],.marquee-logo[href="#marca-odem"],.logo-group-copy .marquee-logo:nth-child(1),.logo-group-copy .marquee-logo:nth-child(6){overflow:hidden}
-.marquee-logo[href="#marca-atlas"] img,.logo-group-copy .marquee-logo:nth-child(1) img{transform:scale(1.12)}
-.marquee-logo[href="#marca-odem"] img,.logo-group-copy .marquee-logo:nth-child(6) img{transform:scale(1.28)}
 .brand-list{margin-top:0;border-top:1px solid #bfc8d5}
 .brand-feature{display:grid;grid-template-columns:29% minmax(0,1fr) 180px;gap:4.5%;align-items:center;min-height:270px;padding:36px 32px;border-bottom:1px solid #bfc8d5;scroll-margin-top:125px;transition:background .2s ease}
 .brand-feature:nth-child(even){background:#ffffff9c}
@@ -116,12 +109,6 @@ h1 em,h2 em{font-style:normal;color:var(--yellow)}
 .brand-feature-mark img{max-width:96%;max-height:150px;width:auto;height:auto;object-fit:contain}
 .brand-feature-mark img[src$="jlobato-nova.png"]{max-width:100%}
 #marca-dryko .brand-feature-mark img,#marca-amatools .brand-feature-mark img,#marca-jlobato .brand-feature-mark img{max-width:100%;max-height:100%}
-#marca-lamesa .brand-feature-mark,#marca-botafogo .brand-feature-mark{overflow:hidden}
-#marca-lamesa .brand-feature-mark img{width:100%;height:100%;max-width:none;max-height:none;object-fit:contain;transform:scale(1.18)}
-#marca-botafogo .brand-feature-mark img{width:100%;height:100%;max-width:none;max-height:none;object-fit:contain;transform:scale(1.45)}
-#marca-atlas .brand-feature-mark,#marca-odem .brand-feature-mark{overflow:hidden}
-#marca-atlas .brand-feature-mark img{transform:scale(1.1)}
-#marca-odem .brand-feature-mark img{transform:scale(1.2)}
 .about-journey{scroll-margin-top:112px}
 .brand-category{margin:0 0 12px;color:var(--blue);text-transform:uppercase;font-size:11px;font-weight:800;letter-spacing:.15em}
 .brand-feature h3{font:600 clamp(39px,4vw,57px)/.95 var(--display);margin:0 0 17px;color:var(--navy)}
@@ -277,7 +264,6 @@ html.page-leaving body{opacity:.6;transform:translateY(-6px);transition:opacity 
   .logo-group-copy{display:none}
   .marquee-logo{width:auto;height:110px;padding:11px;border:1px solid #e2e6ed}
   .marquee-logo img{max-height:84px}
-  .marquee-logo[href="#marca-dryko"] img{max-height:99px}
   .brand-list{margin-top:40px}
   .brand-feature{grid-template-columns:150px minmax(0,1fr);min-height:0;padding:25px 0;gap:22px;scroll-margin-top:88px}
   .brand-feature-mark{min-height:145px;padding:15px}
@@ -489,4 +475,77 @@ h1,h2{text-wrap:balance}
   .about h2,.beliefs-head h2,.values-intro h2,.future-grid h2{font-size:clamp(32px,8.4vw,39px)}
   .section-heading h2,.partner-heading h2{font-size:clamp(32px,8.4vw,39px);line-height:1.12;letter-spacing:-.045em}
   .belief h3{font-size:30px;line-height:1.16}
+}
+
+/* Presentation model 2: one color-preserving ribbon and a focused brand viewer. */
+.partner-ribbon{padding-block:60px 42px}
+.partner-heading{margin-bottom:27px}
+.partner-heading h2{font-size:clamp(39px,4vw,59px);line-height:1.13;letter-spacing:-.05em}
+.logo-marquee{border:1px solid #dce3ed;border-radius:6px;box-shadow:none;mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.logo-track{animation-duration:52s}
+.marquee-logo{height:106px;padding:14px 19px}
+.marquee-logo img{width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain;transform:none}
+.progressive-blur{display:none}
+.partner-foot{margin-top:19px}
+.brand-section{padding-block:76px 90px;background:#f5f7fa}
+.brand-intro .section-heading{margin-bottom:29px}
+.brand-intro .section-heading h2{font-size:clamp(38px,4.4vw,62px);line-height:1.1;letter-spacing:-.05em}
+.brand-intro .section-heading p{max-width:340px;font-size:15px}
+.brand-browser{display:flex;align-items:center;gap:18px;margin-bottom:13px}
+.brand-selectors{display:flex;align-items:center;gap:5px;flex:1;min-width:0;overflow-x:auto;scrollbar-width:thin;padding:4px 0 10px}
+.brand-selectors button{flex:none;min-height:42px;border:1px solid transparent;border-radius:4px;background:transparent;padding:8px 12px;color:#54617a;font-size:12px;font-weight:800;cursor:pointer;white-space:nowrap;transition:background .18s ease,color .18s ease}
+.brand-selectors button[aria-pressed="true"]{background:var(--navy);color:#fff}
+.brand-selectors button:hover:not([aria-pressed="true"]){background:#e5ebf5;color:var(--navy)}
+.brand-pager{display:flex;align-items:center;gap:5px;flex:none;padding-bottom:8px}
+.brand-count{min-width:53px;margin-right:6px;color:var(--navy);font-size:11px;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
+.brand-pager button{width:42px;height:42px;border:1px solid #c4cedd;border-radius:4px;background:#fff;color:var(--navy);font-size:19px;cursor:pointer;transition:background .18s ease}
+.brand-pager button:hover{background:var(--yellow)}
+.brand-list{display:block;margin:0;border:0}
+.brand-feature,.brand-feature:nth-child(even){grid-template-columns:minmax(0,35%) minmax(0,1fr) 170px;align-items:center;gap:3.3%;min-height:385px;padding:23px;background:#fff;border:1px solid #d9e1ec;border-radius:6px;box-shadow:0 14px 38px #1a325c0b}
+.brand-feature[hidden]{display:none!important}
+.brand-section.is-enhanced .brand-feature:not([hidden]){animation:brand-enter .3s var(--ease-out) both}
+@keyframes brand-enter{from{opacity:.35;transform:translateY(9px)}to{opacity:1;transform:none}}
+.brand-feature-media{min-width:0;height:337px;overflow:hidden;border-radius:3px;background:#fff;display:grid;place-items:center;padding:34px;border:1px solid #e6ebf2}
+.brand-feature-media>.brand-logo{display:block;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;filter:none;transform:none}
+#marca-dryko .brand-feature-media{background:#ff0002;border-color:#ff0002}
+#marca-amatools .brand-feature-media{background:#20313a;border-color:#20313a}
+#marca-jlobato .brand-feature-media{background:#333;border-color:#333}
+.brand-feature h3{font-size:clamp(30px,3vw,43px);font-weight:800;line-height:1.1;letter-spacing:-.05em;margin-bottom:16px}
+.brand-feature-body>p:not(.brand-category){font-size:14px;line-height:1.65}
+.brand-feature dl{font-size:12px;line-height:1.55}
+.brand-feature-actions{gap:8px}
+.brand-feature-actions a{min-height:43px;padding:9px 11px;font-size:12px}
+@media(max-width:1050px){
+  .brand-feature,.brand-feature:nth-child(even){grid-template-columns:minmax(0,38%) minmax(0,1fr);gap:22px}
+  .brand-feature-actions{grid-column:2;flex-direction:row}
+  .brand-feature-actions a{min-width:0;flex:1}
+}
+@media(max-width:750px){
+  .partner-ribbon{padding-block:51px 38px}
+  .partner-heading h2{font-size:clamp(33px,7vw,48px)}
+  .logo-marquee{width:calc(100% - 34px);overflow:hidden;background:#fff;border:1px solid #dce3ed;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+  .logo-track{display:flex;width:max-content;animation:logo-shift 52s linear infinite}
+  .logo-group,.logo-group-copy{display:flex;flex:none;gap:0}
+  .marquee-logo{width:171px;height:96px;padding:12px 17px;border:0;border-right:1px solid #e2e6ed}
+  .brand-section{padding-block:60px 65px}
+  .brand-browser{display:block}
+  .brand-selectors{width:100%;padding-bottom:9px}
+  .brand-pager{justify-content:flex-end;padding:2px 0 7px}
+  .brand-feature,.brand-feature:nth-child(even){grid-template-columns:1fr;gap:19px;padding:16px}
+  .brand-feature-media{height:270px}
+  .brand-feature-actions{grid-column:1;justify-content:flex-start}
+}
+@media(max-width:480px){
+  .partner-heading h2,.brand-intro .section-heading h2{font-size:clamp(32px,8.4vw,39px)}
+  .brand-intro .section-heading p{font-size:14px}
+  .brand-feature-media{height:225px}
+  .brand-feature h3{font-size:33px}
+  .brand-feature-actions a{min-width:0;font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){
+  .logo-marquee{overflow-x:auto;mask-image:none;-webkit-mask-image:none}
+  .logo-track{display:flex;width:max-content;animation:none}
+  .logo-group{display:flex}
+  .logo-group-copy{display:none}
+  .brand-section.is-enhanced .brand-feature:not([hidden]){animation:none}
 }
