@@ -588,3 +588,21 @@ h1,h2{text-wrap:balance}
 @media(max-width:750px){.brand-browser{display:flex}.brand-selectors{padding:5px}.brand-selectors button{flex:0 0 auto;min-height:58px;padding:8px 12px;font-size:12px}.brand-pager{padding:0 0 2px}}
 @media(max-width:480px){.brand-selectors button{min-height:56px;padding:8px 10px}.selector-logo{width:31px;height:29px}}
 @media(prefers-reduced-motion:reduce){.brand-selectors button{transition:none}.brand-selectors button:hover:not([aria-pressed="true"]){transform:none}}
+
+/* Logo cloud adapted for the native site, with original brand colors. */
+.partner-ribbon{isolation:isolate;padding-block:58px 37px;background:#eef2f8}
+.partner-ribbon::after{content:"";position:absolute;z-index:-1;left:50%;top:-42%;width:min(1050px,95vw);height:430px;transform:translateX(-50%);pointer-events:none;background:radial-gradient(ellipse at center,rgba(30,65,155,.12),transparent 62%);filter:blur(26px)}
+.partner-heading{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;margin-bottom:24px}
+.partner-heading h2{font-size:clamp(34px,4vw,54px);line-height:1.14}
+.partner-heading>p{max-width:600px;margin:0;padding:0;border:0;font-size:14px;line-height:1.55}
+.partner-heading .eyebrow{justify-content:center}
+.cloud-divider{height:1px;width:min(610px,calc(100% - 34px));margin-bottom:20px;background:linear-gradient(90deg,transparent,#becbe1 28%,#becbe1 72%,transparent)}
+.cloud-divider-bottom{width:min(940px,calc(100% - 34px));margin-top:20px;margin-bottom:0}
+.logo-marquee{width:min(1260px,calc(100% - 54px));border:0;background:transparent;border-radius:0;mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.logo-track{animation-duration:80s;animation-direction:reverse}
+.logo-marquee.is-slider-enhanced .logo-track{animation:none!important}
+.marquee-logo{height:104px;border:0;border-right:1px solid #d5dfed;background:rgba(255,255,255,.78)}
+.marquee-logo img{max-height:82px;filter:none}
+.partner-foot{margin-top:15px}
+@media(max-width:750px){.partner-ribbon{padding-block:48px 32px}.partner-heading{margin-bottom:20px}.partner-heading h2{font-size:clamp(31px,7vw,43px)}.logo-marquee{width:calc(100% - 34px);background:transparent;border:0}.marquee-logo{height:90px;padding:10px 16px}.marquee-logo img{max-height:70px}.cloud-divider-bottom{margin-top:17px}}
+@media(prefers-reduced-motion:reduce){.logo-marquee{overflow-x:auto;mask-image:none;-webkit-mask-image:none}.logo-track{animation:none!important}.logo-group-copy{display:none}}

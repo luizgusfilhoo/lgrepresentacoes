@@ -59,6 +59,7 @@ class RepresentadasTests(unittest.TestCase):
         for label in ("Representada anterior", "Próxima representada"):
             self.assertEqual(len(self.page.xpath(f'//button[@aria-label="{label}"]')), 1)
         self.assertIn('src="./marcas.js"', (ROOT / "index.html").read_text(encoding="utf-8"))
+        self.assertIn('src="./logo-cloud.js"', (ROOT / "index.html").read_text(encoding="utf-8"))
 
     def test_logo_art_is_not_cropped_or_recolored(self):
         css = (ROOT / "style.css").read_text(encoding="utf-8")
