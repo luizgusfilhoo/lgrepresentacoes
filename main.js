@@ -83,8 +83,10 @@ if (tabsRail) {
 
 const sectionLinks = [...document.querySelectorAll('#menu a[href^="#"]')];
 const sections = sectionLinks.map(link => ({ link, section: document.getElementById(link.hash.slice(1)) })).filter(item => item.section);
+const siteHeader = document.querySelector('.header');
 let navUpdateQueued = false;
 const updateCurrentSection = () => {
+  siteHeader?.classList.toggle('is-scrolled', scrollY > 16);
   const position = scrollY + Math.min(innerHeight * .35, 320);
   let current = sections[0];
   sections.forEach(item => { if (item.section.offsetTop <= position) current = item; });
