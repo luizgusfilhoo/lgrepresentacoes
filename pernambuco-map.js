@@ -18,7 +18,7 @@
       L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 17,
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      }).addTo(map);
+      }).on('tileload', () => el.classList.add('has-tiles')).addTo(map);
       map.whenReady(() => requestAnimationFrame(() => map.invalidateSize()));
     };
     document.head.append(script);
