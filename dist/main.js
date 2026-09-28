@@ -89,7 +89,9 @@ const updateCurrentSection = () => {
   siteHeader?.classList.toggle('is-scrolled', scrollY > 16);
   const position = scrollY + Math.min(innerHeight * .35, 320);
   let current = sections[0];
-  sections.forEach(item => { if (item.section.offsetTop <= position) current = item; });
+  sections.forEach(item => {
+    if (item.section.offsetTop <= position && item.section.offsetTop >= current.section.offsetTop) current = item;
+  });
   sections.forEach(({ link }) => {
     const active = link === current?.link;
     link.classList.toggle('active', active);
