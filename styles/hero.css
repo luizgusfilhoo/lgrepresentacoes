@@ -1,0 +1,24 @@
+/* Tailwind utilities scoped to component source; no Preflight on the legacy site. */
+@layer theme, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities) source(none);
+@source "../components/ui/shape-landing-hero.tsx";
+
+.lg-geometric-hero{isolation:isolate;display:grid;place-items:center;min-height:540px;min-height:clamp(490px,68svh,670px);background:#101d90;color:#fff;padding:64px 24px 75px}
+.lg-geometry{pointer-events:none;overflow:hidden}
+.lg-shape-entry{opacity:.75;pointer-events:none}
+.shape-one{left:-12%;top:16%}.shape-two{right:-9%;top:70%}.shape-three{left:8%;bottom:6%}.shape-four{right:19%;top:9%}.shape-five{left:25%;top:5%}
+.lg-shape-float{max-width:70vw;border-radius:999px;border:1px solid #bdceff33;background:linear-gradient(90deg,#456bcc44,transparent);box-shadow:inset 0 1px 8px #ccd9ff12,0 8px 32px #122b681a;animation:lg-shape-drift 12s cubic-bezier(.37,0,.63,1) infinite;animation-play-state:paused}
+.lg-shape-gold{border-color:#ffcd4d38;background:linear-gradient(90deg,#c7962533,transparent)}
+.geometry-running .lg-shape-float{animation-play-state:running}
+.lg-geometry-shade{pointer-events:none;background:radial-gradient(ellipse at center,#101d9099 15%,#101d9022 70%),linear-gradient(0deg,#101d9099,transparent 35%,#101d9066)}
+.lg-hero-content{z-index:1;max-width:1080px;width:100%;margin-inline:auto}
+.lg-hero-badge{display:flex;align-items:center;justify-content:center;gap:9px;font-size:12px;font-weight:500;letter-spacing:.05em;color:#ccd6ee;margin:0 0 25px}.lg-hero-badge svg{color:#ffd34d}
+.lg-hero-content h1{color:white;font-size:clamp(36px,4.5vw,64px);line-height:1.15;letter-spacing:-.045em;font-weight:600;margin:0 0 25px;text-wrap:balance}.lg-hero-content h1 span{display:block}.lg-hero-content h1 span+span{color:#d0dcff}
+.lg-hero-description{max-width:620px;font-size:16px;line-height:1.8;color:#c4cee2;margin:0 auto 30px;text-wrap:pretty}
+.lg-hero-actions{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}.lg-hero-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:13px 22px;border-radius:3px;font-size:13px;font-weight:600;transition:background-color 160ms ease,color 160ms ease,transform 160ms cubic-bezier(.23,1,.32,1)}
+.lg-hero-primary{background:#ffd34d;color:#111b3a}.lg-hero-secondary{background:#ffffff08;border:1px solid #99acd16b;color:#fff}.lg-hero-actions a:focus-visible{outline:3px solid #ffd34d;outline-offset:5px}.lg-hero-actions a:active{transform:translateY(1px)}
+@keyframes lg-shape-drift{0%,100%{transform:translateY(0)}50%{transform:translateY(var(--shape-drift,15px))}}
+@media(hover:hover) and (pointer:fine){.lg-hero-primary:hover{background:#ffe185}.lg-hero-secondary:hover{background:#ffffff16}}
+@media(max-width:600px){.lg-geometric-hero{min-height:500px;min-height:clamp(470px,68svh,580px);padding:48px 20px 70px}.lg-hero-badge{font-size:10px;letter-spacing:.025em;margin-bottom:22px}.lg-hero-content h1{font-size:clamp(30px,7.7vw,44px);margin-bottom:22px;letter-spacing:-.045em}.lg-hero-content h1 span+span{max-width:350px;margin-inline:auto}.lg-hero-description{font-size:13px;line-height:1.8;max-width:340px;margin-bottom:25px}.lg-hero-actions{gap:10px}.lg-hero-actions a{padding:12px 15px;font-size:11px}.shape-one{left:-30%;top:15%}.shape-two{right:-25%;top:76%}.shape-three{left:-10%;bottom:12%}}
+@media(prefers-reduced-motion:reduce){.lg-shape-float{animation:none!important}.lg-shape-entry{transform:none!important}.lg-hero-actions a{transition:none}}

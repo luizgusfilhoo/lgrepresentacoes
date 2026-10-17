@@ -2,10 +2,11 @@
   const cloud = document.querySelector('#marcas-faixa');
   const track = cloud?.querySelector('.logo-track');
   const group = track?.querySelector('.logo-group:not(.logo-group-copy)');
-  if (!cloud || !track || !group || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
+  if (!cloud || !track || !group || motionPreference.matches) return;
 
   const normalDuration = 80;
-  const hoverDuration = 25;
+  const hoverDuration = 160;
   let width = group.getBoundingClientRect().width;
   if (!width) return;
   let position = -width;
@@ -17,7 +18,7 @@
   track.style.transform = `translate3d(${position}px,0,0)`;
   cloud.classList.add('is-slider-enhanced');
 
-  const paused = () => cloud.classList.contains('is-paused') || cloud.matches(':focus-within') || document.hidden;
+  const paused = () => motionPreference.matches || cloud.classList.contains('is-paused') || cloud.matches(':focus-within') || document.hidden;
   const targetSpeed = () => width / (hovering ? hoverDuration : normalDuration);
   function tick(time) {
     const elapsed = previousTime ? Math.min((time - previousTime) / 1000, 0.08) : 0;
@@ -44,6 +45,10 @@
   cloud.addEventListener('focusout', () => requestAnimationFrame(update));
   document.querySelector('.marquee-toggle')?.addEventListener('click', update);
   document.addEventListener('visibilitychange', update);
+  motionPreference.addEventListener('change', () => {
+    if (motionPreference.matches) track.style.transform = 'none';
+    update();
+  });
   if ('ResizeObserver' in window) {
     new ResizeObserver(() => {
       const nextWidth = group.getBoundingClientRect().width;

@@ -1,0 +1,165 @@
+/* LG: clear information, consistent rhythm and restrained motion. */
+:root{--paper:#f7f8fa;--editorial-ease:cubic-bezier(.22,1,.36,1)}
+html{scroll-padding-top:100px}
+.header-inner{gap:20px}
+.header nav{gap:16px}
+.header nav .slide-tabs>a{padding-inline:12px}
+.header.is-scrolled{box-shadow:0 5px 24px #101b4d08}
+.header nav .slide-tabs-cursor{inset:4px;border-radius:999px}
+.hero h1{letter-spacing:-.055em}
+.hero-actions .button,.button{transition:background .2s ease,transform .25s var(--editorial-ease),box-shadow .25s ease}
+.button span,.news-source span,.news-help a span,.footer-bottom a span{display:inline-block;transition:transform .25s var(--editorial-ease)}
+.partner-ribbon{background:#fff;padding-block:42px 28px}
+.partner-ribbon::after{display:none}
+.partner-heading{flex-direction:row;text-align:left;align-items:end;justify-content:space-between;gap:40px}
+.partner-heading .eyebrow{justify-content:flex-start}
+.partner-heading h2{font-size:clamp(29px,3.1vw,42px)}
+.partner-heading>p{max-width:400px;font-size:14px}
+.cloud-divider{display:none}
+.marquee-logo{background:#fff;border-right-color:#e7ebf1}
+.brand-section{padding-block:58px 68px;background:#f3f5f8}
+.brand-intro .section-heading{margin-bottom:26px;align-items:end}
+.brand-intro .section-heading h2{font-size:clamp(32px,3.3vw,44px)}
+.brand-intro .section-heading p{font-size:14px}
+.brand-feature,.brand-feature:nth-child(even){min-height:290px;padding:22px;box-shadow:0 8px 28px #15286805}
+.brand-feature-media{height:250px;padding:30px}
+.brand-selectors button{min-height:56px}
+.brand-feature h3{font-size:32px}
+.about-journey .about,.about-journey .beliefs-section,.about-journey .values-section,.about-journey .future-section{padding-block:64px}
+.about h2,.beliefs-head h2,.values-intro h2,.future-grid h2,#contato .section-heading h2{font-size:clamp(32px,3.4vw,46px);line-height:1.2;letter-spacing:-.045em}
+.about-copy p,.belief p,.future-grid p,.future-grid li{font-size:15px}
+.belief{min-height:0;padding:26px}
+.belief h3{font-size:25px;margin-top:26px}
+.beliefs-head{margin-bottom:28px}
+.values-list article{padding-block:21px}
+.values-list h3{font-size:22px}
+.values-list p{font-size:14px}
+.future-grid{gap:7%}
+#contato{padding-block:64px}
+#contato .section-heading{margin-bottom:24px}
+#contato .section-heading>p{font-size:14px}
+.contact-card h4{font-size:23px}
+.location-grid{margin-top:32px}
+
+/* News: compact editorial cards with quick brand filters. */
+.news-section{padding-block:72px;background:#fff;scroll-margin-top:24px}
+.news-heading{display:flex;align-items:end;justify-content:space-between;gap:48px;margin-bottom:30px}
+.news-heading h2{font:800 clamp(32px,3.5vw,46px)/1.17 var(--display);letter-spacing:-.045em;margin:0;color:var(--navy)}
+.news-heading>.eyebrow{margin:0}
+.news-heading>p{max-width:350px;font-size:14px;line-height:1.75;color:var(--muted);margin:0 0 2px}
+.news-filters{display:flex;flex-wrap:wrap;gap:7px;padding-bottom:24px;scroll-margin-top:100px}
+.news-filters button{min-height:40px;padding:9px 14px;white-space:nowrap;cursor:pointer;font:700 12px/1.4 var(--body);color:#566078;background:#f5f7fa;border:1px solid #e4e8ef;border-radius:999px;transition:background .2s ease,color .2s ease,border-color .2s ease}
+.news-filters button[aria-pressed="true"]{color:#fff;background:var(--navy);border-color:var(--navy)}
+.news-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.news-card{display:flex;flex-direction:column;min-width:0;padding:25px 25px 0;border:1px solid #dee4ed;border-radius:10px;background:#fff;box-shadow:0 3px 8px #101b4d03;transition:border-color .25s ease,box-shadow .25s ease;position:relative;overflow:hidden}
+.news-card:before{content:'';position:absolute;left:0;right:0;top:0;height:3px;background:var(--yellow);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--editorial-ease)}
+.news-card[hidden]{display:none!important}
+.news-media{display:block;position:relative;aspect-ratio:16/10;margin:-25px -25px 21px;overflow:hidden;background:#f6f7fa;border-bottom:1px solid #e9edf3}
+.news-media img{display:block;width:100%;height:100%;object-fit:contain;padding:18px;background:#fff;transition:transform .5s var(--editorial-ease)}
+.news-media span{position:absolute;right:12px;bottom:12px;padding:7px 10px;border:1px solid #e5e9ef;border-radius:5px;background:#fffffff0;color:var(--navy);font-size:12px;font-weight:700}
+.news-card-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+.news-card-logo{display:grid;place-items:center;flex:none;width:106px;height:58px;border-radius:4px;background:#fff;padding:5px}
+.news-card-logo img{width:100%;height:100%;object-fit:contain;filter:none}
+.news-card-logo.logo-dryko{background:#ff0002}
+.news-card-logo.logo-dryko img{height:100%;aspect-ratio:auto;object-fit:contain;object-position:center}
+.news-card-logo.logo-amatools{background:#20313a}
+.news-card-logo.logo-jlobato{background:#333}
+.news-kind{font:700 12px/1.4 var(--body);padding:6px 8px;border-radius:4px;background:#eff3f8;color:#57647b;text-align:center}
+.news-kind.is-launch{background:#fff3c5;color:#6b5100}
+.news-card h3{font:800 21px/1.4 var(--display);letter-spacing:-.025em;margin:0 0 12px;color:var(--navy)}
+.news-card>p:not(.news-meta){font-size:14px;line-height:1.7;color:var(--muted);margin:0 0 20px}
+.news-card .news-meta{margin:auto 0 16px;font:500 12px/1.5 var(--body);color:#667084}
+.news-source{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:12px;font-weight:800;color:var(--navy);min-height:44px;padding-bottom:15px}
+.news-source span{font-size:21px;line-height:1}
+.news-card-bottom{display:flex;align-items:center;justify-content:space-between;gap:15px;border-top:1px solid #e9edf3;padding:7px 0}
+.news-card-bottom a{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:600;color:#58657b;min-height:40px}
+.news-card-bottom svg{flex:none}
+.news-controls{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:22px}
+.news-status{font-size:12px;color:var(--muted);margin:0}
+.news-more{cursor:pointer;color:var(--navy);font:800 12px/1.4 var(--body);padding:11px 0;background:none;border:0;border-bottom:1px solid #aebbd0;min-height:44px}
+.news-more span{display:inline-block;margin-left:14px}
+.news-help{display:flex;align-items:center;justify-content:space-between;gap:25px;margin-top:35px;padding:21px 25px;background:#f5f7fa;border-radius:6px;border-left:3px solid var(--yellow)}
+.news-help>span{font-size:12px;color:var(--muted)}
+.news-help strong{display:block;font-size:14px;color:var(--navy);font-weight:700}
+.news-help>a{display:flex;align-items:center;gap:20px;white-space:nowrap;min-height:44px;font-size:12px;font-weight:800;color:var(--navy)}
+
+/* A complete institutional footer, with useful destinations. */
+.site-footer{background:#0b1535;color:#fff;position:relative;overflow:hidden}
+.footer-cta{display:flex;align-items:center;justify-content:space-between;gap:40px;padding-block:54px;border-bottom:1px solid #ffffff20}
+.footer-cta .eyebrow{font-size:10px;color:#c7d1e5;margin-bottom:14px}
+.footer-cta h2{font:700 clamp(30px,3.2vw,44px)/1.18 var(--display);letter-spacing:-.04em;margin:0}
+.footer-cta .button{font-size:12px;padding:15px 21px;gap:30px}
+.footer-grid{display:grid;grid-template-columns:1.2fr .9fr 1.2fr 1.25fr;gap:42px;padding-block:45px}
+.footer-brand .brand{color:#fff;gap:12px}
+.footer-mark{display:grid;place-items:center;width:57px;height:49px;background:#fff;border-radius:5px;padding:5px;flex:none}
+.footer-mark img{width:100%;height:100%;object-fit:contain}
+.footer-brand>p{max-width:260px;font-size:12px;line-height:1.85;color:#b5c0d7;margin:21px 0 14px}
+.footer-social{display:inline-flex;align-items:center;gap:9px;min-height:44px;font-size:12px;color:#e7edf7}
+.footer-social>span{color:var(--yellow);margin-left:9px}
+.footer-links h3{font:800 12px/1.4 var(--body);color:#fff;margin:0 0 18px}
+.footer-links>a,.footer-brands>a{display:block;width:fit-content;max-width:100%;font-size:11px;line-height:1.6;padding-block:6px;color:#b5c0d7;transition:color .2s ease;text-wrap:pretty}
+.footer-links a:hover,.footer-links a:focus-visible,.footer-social:hover{color:#fff}
+.footer-brands{display:grid;grid-template-columns:1fr 1fr;column-gap:15px}
+.footer-contact a{overflow-wrap:anywhere}
+.footer-contact a:first-of-type{font-size:17px;font-weight:700;color:#fff;padding-top:0;margin-bottom:8px}
+.footer-contact a small{display:block;font-size:10px;font-weight:500;color:#a8b6d2;margin-bottom:5px}
+.footer-contact a>span{color:var(--yellow)}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:17px;border-top:1px solid #ffffff18;color:#8999b8}
+.footer-bottom small{font-size:10px}
+.footer-bottom a{font-size:11px;color:#c8d2e6;min-height:44px;display:flex;align-items:center;gap:17px}
+
+/* The effect starts only after an observer is available. */
+.motion-ready [data-reveal]{transition-duration:.65s;transition-timing-function:var(--editorial-ease);transform:translateY(18px)}
+.motion-ready [data-reveal].is-visible{transform:none}
+.brand-section.is-enhanced .brand-feature:not([hidden]){animation:brand-enter .42s var(--editorial-ease) both}
+@media(hover:hover) and (pointer:fine){
+  .button:hover{transform:translateY(-2px);box-shadow:0 7px 19px #101b4d12}
+  .button:hover span,.news-source:hover span,.news-help a:hover span{transform:translate(3px,-3px)}
+  .news-card:hover{border-color:#becbde;box-shadow:0 10px 26px #101b4d08}
+  .news-media:hover img{transform:scale(1.035)}
+  .news-card:hover:before{transform:scaleX(1)}
+  .news-filters button:hover:not([aria-pressed="true"]){background:#eaf0f8;border-color:#c5d2e6;color:var(--navy)}
+  .news-card-bottom a:hover{color:var(--blue)}
+  .footer-bottom a:hover span{transform:translateY(-3px)}
+}
+@media(max-width:1100px){
+  .header nav{gap:12px}.header nav .slide-tabs>a{padding-inline:10px;font-size:11px}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:30px 55px}
+  .news-card{padding:20px 20px 0}.news-media{margin:-20px -20px 18px}.news-card-logo{width:86px;height:50px}.news-kind{font-size:12px}
+}
+@media(max-width:800px){
+  .header nav .slide-tabs>a{font-size:13px;padding:12px}
+  .header nav .nav-contact{justify-content:space-between}
+  .partner-heading{flex-direction:column;align-items:flex-start;gap:16px}
+  .partner-heading>p{max-width:550px}
+  .news-heading{display:block}.news-heading>p{margin-top:17px;max-width:530px}
+  .news-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .news-card:last-child:nth-child(odd){grid-column:auto}
+  .brand-feature-media{height:230px}
+}
+@media(max-width:600px){
+  .news-section{padding-block:52px}.news-heading{margin-bottom:23px}
+  .news-filters{flex-wrap:nowrap;overflow-x:auto;padding:4px 3px 17px;margin-inline:-3px;scrollbar-width:thin}
+  .news-filters button{flex:none;font-size:12px;min-height:42px}
+  .news-grid{grid-template-columns:1fr;gap:14px}.news-card{padding:22px 22px 0}.news-media{margin:-22px -22px 18px}
+  .news-card-top{margin-bottom:18px}.news-card-logo{width:106px;height:53px}
+  .news-card h3{font-size:21px}.news-card>p:not(.news-meta){font-size:14px}
+  .news-kind{font-size:12px}.news-controls{align-items:flex-start;flex-direction:column;gap:8px}
+  .news-help{align-items:flex-start;flex-direction:column;gap:10px;padding:19px;margin-top:26px}
+  .news-help strong{font-size:13px}.news-help>a{min-height:35px}
+  .footer-cta{align-items:flex-start;flex-direction:column;gap:25px;padding-block:42px}
+  .footer-grid{gap:30px 20px;padding-block:32px;grid-template-columns:1fr 1fr}
+  .footer-brand,.footer-contact{grid-column:1/-1}.footer-brand>p{max-width:340px}
+  .footer-brands{grid-template-columns:1fr}.footer-links>a,.footer-brands>a{padding-block:8px;font-size:12px}
+  .footer-bottom{align-items:flex-start;flex-direction:column;gap:0;padding-top:21px}
+  .about-journey .about,.about-journey .beliefs-section,.about-journey .values-section,.about-journey .future-section,#contato{padding-block:48px}
+  .brand-section{padding-block:45px}.brand-feature-media{height:210px}
+  .partner-heading h2{font-size:31px}.partner-ribbon{padding-top:38px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*:before,*:after{animation:none!important;transition:none!important}
+  .motion-ready [data-reveal],.motion-ready [data-reveal="stagger"]>*{opacity:1!important;transform:none!important}
+  .button:hover,.brand-selectors button:hover{transform:none}
+  .scroll-progress{display:none}
+}

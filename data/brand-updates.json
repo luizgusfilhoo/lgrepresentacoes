@@ -1,0 +1,258 @@
+{
+  "version": 1,
+  "brands": [
+    {
+      "id": "atlas",
+      "name": "Atlas",
+      "logo": "atlas.png",
+      "site": "https://site.atlas.com.br/pt",
+      "instagram": "https://www.instagram.com/pinceisatlasoficial/",
+      "instagramEvidence": "Catálogo oficial Atlas — seção de redes sociais",
+      "allowedHosts": [
+        "site.atlas.com.br"
+      ],
+      "source": {
+        "url": "https://site.atlas.com.br/pt/produtos/lancamentos",
+        "adapter": "atlas",
+        "summary": "Conheça o item destacado na linha de lançamentos Atlas. Consulte medidas, versões e indicação de uso no site da indústria."
+      },
+      "mediaHosts": [
+        "api.atlas.com.br"
+      ]
+    },
+    {
+      "id": "dryko",
+      "name": "Dryko",
+      "logo": "dryko.png",
+      "site": "https://dryko.com.br/",
+      "instagram": "https://www.instagram.com/drykoimpermeabilizantes/",
+      "instagramEvidence": "https://dryko.com.br/en/home/",
+      "allowedHosts": [
+        "dryko.com.br"
+      ],
+      "mediaHosts": []
+    },
+    {
+      "id": "amatools",
+      "name": "Amatools",
+      "logo": "amatools.png",
+      "site": "https://amatools.com.br/",
+      "instagram": "https://www.instagram.com/amatoolsferramentas/",
+      "instagramEvidence": "Catálogo Amatools 2026 fornecido pela LG, páginas 2 e 397",
+      "allowedHosts": [
+        "amatools.com.br"
+      ],
+      "mediaHosts": []
+    },
+    {
+      "id": "mundial",
+      "name": "Mundial Prime",
+      "logo": "mundial.png",
+      "site": "https://www.mundialprime.com.br/",
+      "instagram": "https://www.instagram.com/mundialprime/",
+      "instagramEvidence": "https://www.mundialprime.com.br/collections/lancamentos",
+      "allowedHosts": [
+        "www.mundialprime.com.br",
+        "mundialprime.com.br"
+      ],
+      "source": {
+        "url": "https://www.mundialprime.com.br/collections/lancamentos",
+        "adapter": "mundial",
+        "summary": "Produto presente na coleção de lançamentos Mundial Prime. Veja aplicações e instruções para orientar a escolha do seu cliente."
+      },
+      "mediaHosts": []
+    },
+    {
+      "id": "lamesa",
+      "name": "Lamesa",
+      "logo": "lamesa.png",
+      "site": "https://www.lamesa.com.br/",
+      "instagram": "https://www.instagram.com/lamesa_cabos/",
+      "instagramEvidence": "Anúncio da Lamesa na Revista Revenda 405, julho de 2024",
+      "allowedHosts": [
+        "www.lamesa.com.br",
+        "lamesa.com.br"
+      ],
+      "mediaHosts": []
+    },
+    {
+      "id": "odem",
+      "name": "Odem",
+      "logo": "odem.png",
+      "site": "https://odem.com.br/",
+      "instagram": "https://www.instagram.com/odem_brasil_oficial/",
+      "instagramEvidence": "https://odem.com.br/",
+      "allowedHosts": [
+        "odem.com.br"
+      ],
+      "mediaHosts": []
+    },
+    {
+      "id": "saga",
+      "name": "Saga Metais",
+      "logo": "saga.png",
+      "site": "https://sagametais.com.br/sobreaempresa/",
+      "instagram": "https://www.instagram.com/sagametais/",
+      "instagramEvidence": "Catálogo oficial fornecido pela LG, capa",
+      "allowedHosts": [
+        "sagametais.com.br"
+      ],
+      "mediaHosts": []
+    },
+    {
+      "id": "botafogo",
+      "name": "Botafogo",
+      "logo": "botafogo.png",
+      "site": "https://www.lojabtf.com.br/",
+      "instagram": "https://www.instagram.com/botafogo_lar_lazer/",
+      "instagramEvidence": "https://www.lojabtf.com.br/",
+      "allowedHosts": [
+        "www.lojabtf.com.br"
+      ],
+      "source": {
+        "url": "https://www.lojabtf.com.br/",
+        "adapter": "botafogo",
+        "summary": "Item apresentado entre os lançamentos Botafogo. Confira dimensões e compatibilidade para escolher a opção adequada à aplicação."
+      },
+      "mediaHosts": [
+        "cdn.awsli.com.br"
+      ]
+    },
+    {
+      "id": "jlobato",
+      "name": "J. Lobato",
+      "logo": "jlobato-nova.png",
+      "site": "https://www.jlobato.com.br/",
+      "instagram": null,
+      "instagramEvidence": null,
+      "allowedHosts": [
+        "www.jlobato.com.br"
+      ],
+      "mediaHosts": [
+        "static.wixstatic.com"
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "atlas-destaque",
+      "brandId": "atlas",
+      "title": "Rolos e trinchas Atlas para pintura",
+      "summary": "Rolos, trinchas e acessórios de pintura formam uma linha central do portfólio Atlas para preparo, aplicação e acabamento.",
+      "kind": "guide",
+      "sourceUrl": "https://site.atlas.com.br/pt/produtos/atlas-painting",
+      "checkedAt": "2026-10-03",
+      "publishedAt": null,
+      "origin": "editorial",
+      "mediaPath": "assets/institucionais/atlas.jpg",
+      "mediaAlt": "Imagem institucional Atlas com uma trincha em uso"
+    },
+    {
+      "id": "mundial-destaque",
+      "brandId": "mundial",
+      "title": "Sprays Mundial Prime",
+      "summary": "Tintas spray para pintura e acabamento, além de aerossóis para manutenção e reparos. Explore as aplicações e escolha a linha adequada.",
+      "kind": "guide",
+      "sourceUrl": "https://www.mundialprime.com.br/collections/tinta-spray",
+      "checkedAt": "2026-10-03",
+      "publishedAt": null,
+      "origin": "editorial",
+      "mediaPath": "assets/institucionais/mundial.jpg",
+      "mediaAlt": "Imagem institucional Mundial Prime com sprays de manutenção"
+    },
+    {
+      "id": "botafogo-destaque",
+      "brandId": "botafogo",
+      "title": "Escadas profissionais Botafogo",
+      "summary": "Escadas de alumínio e fibra estão entre as linhas centrais da Botafogo. Confira o modelo e as especificações antes de indicar a aplicação.",
+      "kind": "guide",
+      "sourceUrl": "https://www.lojabtf.com.br/fibras",
+      "checkedAt": "2026-10-03",
+      "publishedAt": null,
+      "origin": "editorial",
+      "mediaPath": "assets/institucionais/botafogo.jpg",
+      "mediaAlt": "Banner institucional Botafogo com uma escada BTF Pro"
+    },
+    {
+      "id": "dryko-destaque",
+      "brandId": "dryko",
+      "title": "Mantas impermeabilizantes Dryko",
+      "summary": "A linha Drykomanta reúne mantas para impermeabilização de lajes e áreas que exigem proteção contra umidade. Consulte a ficha técnica de cada aplicação.",
+      "kind": "guide",
+      "sourceUrl": "https://dryko.com.br/produtos/vedamanta/",
+      "checkedAt": "2026-10-03",
+      "publishedAt": null,
+      "origin": "editorial",
+      "mediaPath": "assets/institucionais/dryko.jpg",
+      "mediaAlt": "Banner institucional Dryko com mantas asfálticas Superflex"
+    },
+    {
+      "id": "amatools-destaque",
+      "brandId": "amatools",
+      "title": "Brocas e discos de corte Rocast",
+      "summary": "A linha Rocast, do portfólio Amatools, reúne brocas e discos de corte para diferentes trabalhos. Confira medidas e aplicações no catálogo oficial.",
+      "kind": "guide",
+      "sourceUrl": "https://amatools.com.br/produtos-marcas/rocast/",
+      "checkedAt": "2026-10-03",
+      "publishedAt": null,
+      "origin": "editorial",
+      "mediaPath": "assets/novidades/amatools-catalogo.jpg",
+      "mediaAlt": "Capa do catálogo Amatools fornecido pela LG"
+    },
+    {
+      "id": "lamesa-destaque",
+      "brandId": "lamesa",
+      "title": "Cabos flexíveis Lamesa",
+      "summary": "Cabos e condutores flexíveis compõem uma linha importante da Lamesa para instalações elétricas. Confira a especificação de cada família antes da escolha.",
+      "kind": "guide",
+      "sourceUrl": "https://www.lamesa.com.br/produtos.asp",
+      "checkedAt": "2026-10-03",
+      "publishedAt": null,
+      "origin": "editorial",
+      "mediaUrl": "https://www.lamesa.com.br/img/home/chamadas_home02.jpg",
+      "mediaPath": "assets/novidades/lamesa-221ea2e6f50f8bd7.jpg",
+      "mediaAlt": "Conjunto de cabos e condutores Lamesa"
+    },
+    {
+      "id": "odem-destaque",
+      "brandId": "odem",
+      "title": "Canais e calhas de drenagem Odem",
+      "summary": "Os canais e acessórios de drenagem Odem ajudam a compor sistemas de escoamento. Compare medidas e grelhas conforme o projeto.",
+      "kind": "guide",
+      "sourceUrl": "https://odem.com.br/produto/canais-de-drenagem-e-acessorios-evolution-abs/",
+      "checkedAt": "2026-10-03",
+      "publishedAt": null,
+      "origin": "editorial",
+      "mediaUrl": "https://odem.com.br/wp-content/uploads/2021/03/canal-7-315x473.jpg",
+      "mediaPath": "assets/novidades/odem-b2f7d732f3dbf0cf.jpg",
+      "mediaAlt": "Canal de drenagem Odem em imagem oficial"
+    },
+    {
+      "id": "saga-destaque",
+      "brandId": "saga",
+      "title": "Registros e válvulas Saga Metais",
+      "summary": "Registros de pressão, gaveta e esfera, além de válvulas, fazem parte da linha hidráulica da Saga Metais. Consulte modelos e medidas no catálogo.",
+      "kind": "guide",
+      "sourceUrl": "https://sagametais.com.br/",
+      "checkedAt": "2026-10-03",
+      "publishedAt": null,
+      "origin": "editorial",
+      "mediaPath": "assets/novidades/saga-catalogo.jpg",
+      "mediaAlt": "Capa do catálogo Saga fornecido pela LG"
+    },
+    {
+      "id": "jlobato-destaque",
+      "brandId": "jlobato",
+      "title": "Hastes de aterramento J. Lobato",
+      "summary": "As hastes de aterramento de alta camada são um destaque da J. Lobato. Veja também grampos, conectores e medidas disponíveis na fonte oficial.",
+      "kind": "guide",
+      "sourceUrl": "https://www.jlobato.com.br/",
+      "checkedAt": "2026-10-03",
+      "publishedAt": null,
+      "origin": "editorial",
+      "mediaUrl": "https://static.wixstatic.com/media/0d4882_cbe15dea53b644deb31ebfa6c5a5e6af~mv2.png",
+      "mediaPath": "assets/novidades/jlobato-ef00a88cdb4f795d.png",
+      "mediaAlt": "Hastes de aterramento de cobre J. Lobato"
+    }
+  ]
+}

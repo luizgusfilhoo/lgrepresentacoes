@@ -3,49 +3,33 @@ const fs = require('node:fs');
 const path = require('node:path');
 const test = require('node:test');
 const vm = require('node:vm');
-
-const source = fs.readFileSync(path.join(__dirname, '..', 'main.js'), 'utf8');
-const start = source.indexOf('const sectionLinks =');
-const end = source.indexOf('const marquee =', start);
-assert.ok(start >= 0 && end > start, 'navigation code must exist');
-const navigation = source.slice(start, end);
-
-function activeNavigationAt(scrollY) {
-  const offsets = { top: 100, sobre: 2200, marcas: 1300, contato: 4900 };
-  const links = Object.keys(offsets).map(id => {
-    const classes = new Set();
-    return {
-      hash: `#${id}`,
-      classList: {
-        toggle(name, enabled) { if (enabled) classes.add(name); else classes.delete(name); },
-        contains(name) { return classes.has(name); },
-      },
-      setAttribute() {},
-      removeAttribute() {},
-    };
-  });
-  const context = {
-    document: {
-      querySelectorAll: () => links,
-      getElementById: id => ({ offsetTop: offsets[id] }),
-      querySelector: () => ({ classList: { toggle() {} } }),
-    },
-    scrollY,
-    innerHeight: 1000,
-    tabsLinks: links,
-    previewTab: null,
-    positionTabCursor() {},
-    addEventListener() {},
-    requestAnimationFrame() {},
-  };
-  vm.runInNewContext(navigation, context);
-  return links.find(link => link.classList.contains('active'))?.hash;
+const source = fs.readFileSync(path.join(__dirname, '..', 'legacy-routes.js'), 'utf8');
+function destination(hash) {
+  let redirected = null;
+  vm.runInNewContext(source, {addEventListener() {}, location: {hash, replace(value) { redirected = value; }}});
+  return redirected;
 }
-
-test('highlights About when it follows Representadas in page order', () => {
-  assert.equal(activeNavigationAt(2200), '#sobre');
+test('old homepage bookmarks reach the new dedicated pages', () => {
+  assert.equal(destination('#sobre'), './sobre-a-empresa/');
+  assert.equal(destination('#cultura-lg'), './sobre-a-empresa/#cultura-lg');
+  assert.equal(destination('#marcas'), './representadas/');
+  assert.equal(destination('#marca-dryko'), './representadas/#marca-dryko');
+  assert.equal(destination('#contato'), './fale-conosco/');
+  assert.equal(destination('#pernambuco-map'), './fale-conosco/#pernambuco-map');
+  assert.equal(destination('#mais-novidades'), './representadas/#produtos');
 });
-
-test('highlights Representadas while its section is visible', () => {
-  assert.equal(activeNavigationAt(1300), '#marcas');
+test('home banners and unrecognised fragments do not trigger redirects', () => {
+  for (const fragment of ['', '#top', '#novidades', '#unknown', '#marca-https://example.com']) {
+    assert.equal(destination(fragment), null);
+  }
+});
+test('a legacy fragment entered after initial load also reaches its page', () => {
+  let redirected;
+  let hashchange;
+  const location = {hash: '#novidades', replace(value) { redirected = value; }};
+  vm.runInNewContext(source, {location, addEventListener(name, handler) { if (name === 'hashchange') hashchange = handler; }});
+  assert.equal(redirected, undefined);
+  location.hash = '#sobre';
+  hashchange();
+  assert.equal(redirected, './sobre-a-empresa/');
 });

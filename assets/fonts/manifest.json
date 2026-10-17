@@ -1,0 +1,37 @@
+{
+  "family": "Poppins",
+  "provider": "Google Fonts",
+  "retrievedAt": "2026-10-16",
+  "license": "SIL Open Font License 1.1",
+  "licenseSource": "https://raw.githubusercontent.com/google/fonts/main/ofl/poppins/OFL.txt",
+  "files": [
+    {
+      "file": "assets/fonts/poppins-latin-400.woff2",
+      "source": "https://fonts.gstatic.com/s/poppins/v24/pxiEyp8kv8JHgFVrJJfecnFHGPc.woff2",
+      "sha256": "3dc5d0c52428fe1696264907a1054ebbaac07f8cbe45832c105f819c2ae397c0",
+      "bytes": 7900,
+      "weight": "400"
+    },
+    {
+      "file": "assets/fonts/poppins-latin-500.woff2",
+      "source": "https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLGT9Z1xlFd2JQEk.woff2",
+      "sha256": "289e0afc8be731a86822349e54557296f145926496bd2138db1bac0db77f77a2",
+      "bytes": 7740,
+      "weight": "500"
+    },
+    {
+      "file": "assets/fonts/poppins-latin-600.woff2",
+      "source": "https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLEj6Z1xlFd2JQEk.woff2",
+      "sha256": "872e862918591a9e824dc03ed92f05729435ffbb8ebbb10eff7eda26592b1798",
+      "bytes": 7992,
+      "weight": "600"
+    },
+    {
+      "file": "assets/fonts/poppins-latin-700.woff2",
+      "source": "https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLCz7Z1xlFd2JQEk.woff2",
+      "sha256": "197a3cbd7290c242c5c765268cdd69a9a39867fdc80cd13071f243a81c56fb76",
+      "bytes": 7848,
+      "weight": "700"
+    }
+  ]
+}

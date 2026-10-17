@@ -4,14 +4,13 @@ import unittest
 from lxml import html
 
 ROOT = Path(__file__).resolve().parents[1]
-PAGE = html.fromstring((ROOT / 'index.html').read_text(encoding='utf-8'))
+PAGE = html.fromstring((ROOT / 'fale-conosco/index.html').read_text(encoding='utf-8'))
 
 class LocationContactTests(unittest.TestCase):
-    def test_compact_institutional_story_follows_brands(self):
-        main = PAGE.xpath('//main')[0]
-        children = [x.get('id') for x in main if x.get('id')]
-        self.assertLess(children.index('marcas'), children.index('sobre'))
-        section = PAGE.get_element_by_id('sobre')
+    def test_institutional_story_precedes_catalogues_as_reference(self):
+        about = html.fromstring((ROOT / 'sobre-a-empresa/index.html').read_text())
+        self.assertFalse(about.xpath('//*[@id="marcas" or @id="contato"]'))
+        section = about.get_element_by_id('sobre')
         content = section.text_content()
         for term in ('Luiz Gustavo Soares Guimarães','Pernambuco','PROPÓSITO','MISSÃO','VISÃO','Ética','Confiança','Excelência','Experiência','Compromisso','Investir em tecnologia'):
             with self.subTest(term=term): self.assertIn(term, content)
@@ -31,15 +30,35 @@ class LocationContactTests(unittest.TestCase):
         self.assertIn('8h às 16h',content)
         self.assertIn('8h às 12h',content)
 
+    def test_company_profile_is_selected_instead_of_typed(self):
+        form = PAGE.xpath('//form[@data-contact-form]')[0]
+        self.assertFalse(form.xpath('.//input[@name="company"]'))
+        self.assertEqual(form.xpath('.//select[@name="company"]/option[@value!=""]/text()'),
+                         ['Varejista', 'Atacadista', 'Distribuidor', 'Fabricante', 'Profissional da construção', 'Cliente final', 'Outro perfil'])
+
     def test_pernambuco_map_has_text_fallback(self):
         map_area = PAGE.get_element_by_id('pernambuco-map')
         self.assertNotIn('Caruaru',map_area.text_content())
         self.assertIn('Pernambuco',map_area.text_content())
+        image = map_area.xpath('.//img[@alt="Mapa do estado de Pernambuco"]')
+        self.assertEqual(len(image), 1)
+        self.assertEqual(image[0].get('src'), '../assets/pernambuco-map.svg')
+        self.assertIn('<path', (ROOT / 'assets/pernambuco-map.svg').read_text())
         self.assertIn('www.openstreetmap.org', ''.join(PAGE.xpath('//a/@href')))
         self.assertTrue((ROOT / 'pernambuco-map.js').is_file())
         self.assertNotIn('Caruaru', (ROOT / 'pernambuco-map.js').read_text())
         self.assertNotIn('L.marker(', (ROOT / 'pernambuco-map.js').read_text())
+        self.assertIn('pernambuco-geometry.js', (ROOT / 'fale-conosco/index.html').read_text())
         self.assertTrue((ROOT / 'assets/vendor/leaflet/leaflet.js').is_file())
         self.assertTrue((ROOT / 'assets/vendor/leaflet/leaflet.css').is_file())
+
+    def test_map_offers_explicit_accessible_controls(self):
+        map_area = PAGE.get_element_by_id('pernambuco-map')
+        self.assertEqual(len(map_area.xpath('.//form[@role="search"]//input[@type="search"]')), 1)
+        self.assertEqual(len(map_area.xpath('.//button[@data-map-layer="outline"]')), 1)
+        self.assertEqual(len(map_area.xpath('.//button[@data-map-layer="streets"]')), 1)
+        self.assertEqual(len(map_area.xpath('.//button[@data-map-layer="satellite"]')), 1)
+        self.assertEqual(len(map_area.xpath('.//button[@data-map-locate]')), 1)
+        self.assertEqual(len(map_area.xpath('.//*[@role="status"][@aria-live="polite"]')), 1)
 
 if __name__ == '__main__': unittest.main()
