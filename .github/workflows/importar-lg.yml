@@ -1,0 +1,61 @@
+name: Importar e publicar LG
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Importar pacote validado uma unica vez
+        run: |
+          if [ ! -f package.json ]; then
+            echo 'bcb180fe14aa284c52d1f2c44f3dd619446c4bc88de159a1f91ef2b25b8928fb  lg-site-release-20261017.tar.gz' | sha256sum --check
+            tar -xzf lg-site-release-20261017.tar.gz
+          fi
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: npm ci --ignore-scripts --no-fund
+      - run: python -m pip install 'lxml==6.1.1'
+      - run: npm run build
+      - run: npm test
+      - name: Salvar fontes aprovadas no repositorio
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add . ':!.github' ':!lg-site-release-20261017.tar.gz'
+          if ! git diff --cached --quiet; then
+            git commit -m 'Importar fontes LG verificadas e sincronizar publicacao'
+            git push
+          fi
+      - name: Configurar Analytics quando houver ID
+        env:
+          GA4_MEASUREMENT_ID: ${{ vars.GA4_MEASUREMENT_ID }}
+        run: python scripts/inject_ga4.py
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deployment
