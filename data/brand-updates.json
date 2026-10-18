@@ -253,6 +253,84 @@
       "mediaUrl": "https://static.wixstatic.com/media/0d4882_cbe15dea53b644deb31ebfa6c5a5e6af~mv2.png",
       "mediaPath": "assets/novidades/jlobato-ef00a88cdb4f795d.png",
       "mediaAlt": "Hastes de aterramento de cobre J. Lobato"
+    },
+    {
+      "id": "atlas-89b9ff203c6f",
+      "brandId": "atlas",
+      "title": "Assento almof sevilha oval plas",
+      "summary": "Conheça o item destacado na linha de lançamentos Atlas. Consulte medidas, versões e indicação de uso no site da indústria.",
+      "kind": "launch",
+      "sourceUrl": "https://site.atlas.com.br/pt/produtos/atlas-home/assentos-sanitarios/at1263",
+      "checkedAt": "2026-10-18",
+      "publishedAt": null,
+      "origin": "automatic",
+      "mediaUrl": "https://site.atlas.com.br/_next/image?url=https%3A%2F%2Fapi.atlas.com.br%2Fstorage%2Fgeneral-files%2Fproducts%2FwcDLZuZd2xzq3kDbNZTFHeEHgxmYaAbmnkeBf1T0.png&w=640&q=100",
+      "mediaPath": "assets/novidades/atlas-1efe0a31dff1d3c0.png"
+    },
+    {
+      "id": "atlas-8158a7946fad",
+      "brandId": "atlas",
+      "title": "Espatula para baldes inox arredondada",
+      "summary": "Conheça o item destacado na linha de lançamentos Atlas. Consulte medidas, versões e indicação de uso no site da indústria.",
+      "kind": "launch",
+      "sourceUrl": "https://site.atlas.com.br/pt/produtos/atlas-painting/desempenadeiras-e-espatulas/at6655",
+      "checkedAt": "2026-10-18",
+      "publishedAt": null,
+      "origin": "automatic",
+      "mediaUrl": "https://site.atlas.com.br/_next/image?url=https%3A%2F%2Fapi.atlas.com.br%2Fstorage%2Fgeneral-files%2Fproducts%2FCcxOYSYp5KOdNjspp80UvS92HU1kcKo2GdFKELj8.png&w=640&q=100",
+      "mediaPath": "assets/novidades/atlas-0f129117ba9ecfca.png"
+    },
+    {
+      "id": "mundial-5d147cf582cf",
+      "brandId": "mundial",
+      "title": "Kit Trio de Ferro Limpa Contato + Grafite + Graxa Branca",
+      "summary": "Produto presente na coleção de lançamentos Mundial Prime. Veja aplicações e instruções para orientar a escolha do seu cliente.",
+      "kind": "launch",
+      "sourceUrl": "https://www.mundialprime.com.br/products/kit-trio-de-ferro-limpa-contato-grafite-graxa-branca",
+      "checkedAt": "2026-10-18",
+      "publishedAt": null,
+      "origin": "automatic",
+      "mediaUrl": "https://www.mundialprime.com.br/cdn/shop/files/f15b224148f0a0306acc9c1e982ab9bb.jpg?v=1791576438&width=800",
+      "mediaPath": "assets/novidades/mundial-8373e6cf25704794.jpg"
+    },
+    {
+      "id": "mundial-781baefa9054",
+      "brandId": "mundial",
+      "title": "Kit 12 Limpa Contato Spray MP80 Mundial Prime 300ml",
+      "summary": "Produto presente na coleção de lançamentos Mundial Prime. Veja aplicações e instruções para orientar a escolha do seu cliente.",
+      "kind": "launch",
+      "sourceUrl": "https://www.mundialprime.com.br/products/kit-12-limpa-contato-spray-mp80-mundial-prime-300ml",
+      "checkedAt": "2026-10-18",
+      "publishedAt": null,
+      "origin": "automatic",
+      "mediaUrl": "https://www.mundialprime.com.br/cdn/shop/files/d908be8bd94e20ed0aa01524033da122.jpg?v=1791574353&width=800",
+      "mediaPath": "assets/novidades/mundial-f6d8d2b21e73a203.jpg"
+    },
+    {
+      "id": "botafogo-c61e0f0dec84",
+      "brandId": "botafogo",
+      "title": "CAIXA TÉRMICA 26L - Botafogo de Futebol e Regatas",
+      "summary": "Item apresentado entre os lançamentos Botafogo. Confira dimensões e compatibilidade para escolher a opção adequada à aplicação.",
+      "kind": "launch",
+      "sourceUrl": "https://www.lojabtf.com.br/42ukcw0g4-caixa-termica-26l-botafogo-de-futebol-e-regatas",
+      "checkedAt": "2026-10-18",
+      "publishedAt": null,
+      "origin": "automatic",
+      "mediaUrl": "https://cdn.awsli.com.br/300x300/2541/2541987/produto/404454638/37d60afae827421b8d51ec95eb432ce0-jtiqmner0o.jpg",
+      "mediaPath": "assets/novidades/botafogo-1ed20206b7f6d083.jpg"
+    },
+    {
+      "id": "botafogo-d2d35a0c15a4",
+      "brandId": "botafogo",
+      "title": "Guarda-Sol 80x08 (Ø 1,60m) PVC/Alumínio - Botafogo de Futebol e Regatas",
+      "summary": "Item apresentado entre os lançamentos Botafogo. Confira dimensões e compatibilidade para escolher a opção adequada à aplicação.",
+      "kind": "launch",
+      "sourceUrl": "https://www.lojabtf.com.br/cksc6a2uj-guarda-sol-80x08-160m-pvcaluminio-",
+      "checkedAt": "2026-10-18",
+      "publishedAt": null,
+      "origin": "automatic",
+      "mediaUrl": "https://cdn.awsli.com.br/300x300/2541/2541987/produto/404454552/6dcf4cb0749f46168b0b9d766a6a866e-7q6zp15koy.jpg",
+      "mediaPath": "assets/novidades/botafogo-fc8f2fbe58c32851.jpg"
     }
   ]
 }
