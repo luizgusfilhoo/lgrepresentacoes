@@ -6,7 +6,7 @@ from pathlib import Path
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
-ORIGIN = 'https://luizgusfilhoo.github.io/lgrepresentacoes/'
+ORIGIN = 'https://lgrepresentacoes.com.br/'
 PAGES = {
     'home': {'path': 'index.html', 'route': '', 'content': 'home.html', 'label': 'Home',
              'title': 'LG Representações | Materiais de construção em Pernambuco',

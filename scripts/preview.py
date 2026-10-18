@@ -31,7 +31,7 @@ class PreviewHandler(SimpleHTTPRequestHandler):
         if code != 404 or not page.is_file():
             return super().send_error(code, message, explain)
         # The published 404 uses the GitHub project URL; preview recovery stays local.
-        content = page.read_bytes().replace(b'https://luizgusfilhoo.github.io/lgrepresentacoes/', b'/')
+        content = page.read_bytes().replace(b'https://lgrepresentacoes.com.br/', b'/')
         self.send_response(404)
         self.send_header('Content-Type', 'text/html; charset=utf-8')
         self.send_header('Content-Length', str(len(content)))
