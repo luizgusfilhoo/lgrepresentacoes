@@ -20,7 +20,7 @@ class PublishTests(unittest.TestCase):
     def test_search_metadata_and_redirect(self):
         page = html.fromstring((ROOT/'index.html').read_text())
         self.assertFalse(page.xpath('//meta[@name="robots" and contains(@content,"noindex")]'))
-        self.assertEqual(page.xpath('//link[@rel="canonical"]/@href'), ['https://luizgusfilhoo.github.io/lgrepresentacoes/'])
+        self.assertEqual(page.xpath('//link[@rel="canonical"]/@href'), ['https://lgrepresentacoes.com.br/'])
         self.assertIn('Allow: /', (ROOT/'robots.txt').read_text())
         redirect = (ROOT/'sobre/index.html').read_text()
         self.assertIn('../sobre-a-empresa/', redirect)
