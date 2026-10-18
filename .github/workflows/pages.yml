@@ -14,6 +14,8 @@ concurrency:
 
 jobs:
   build:
+    outputs:
+      revision: ${{ steps.revision.outputs.sha }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -25,9 +27,13 @@ jobs:
         with:
           python-version: '3.12'
       - run: npm ci --ignore-scripts --no-fund
+      - run: npm audit --audit-level=high
       - run: python -m pip install 'lxml==6.1.1'
       - run: npm run build
       - run: npm test
+      - name: Registrar revisão do artefato
+        id: revision
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
       - name: Configurar Analytics quando houver ID
         env:
           GA4_MEASUREMENT_ID: ${{ vars.GA4_MEASUREMENT_ID }}
@@ -40,11 +46,27 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     permissions:
+      contents: read
       pages: write
       id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/deploy-pages@v4
+      - name: Verificar revisão antes de publicar
+        id: current
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          BUILT_REVISION: ${{ needs.build.outputs.revision }}
+        run: |
+          latest=$(gh api "repos/$REPOSITORY/commits/main" --jq .sha)
+          if [ "$latest" = "$BUILT_REVISION" ]; then
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+            echo 'Revisão superada; artefato antigo não será publicado.'
+          fi
+      - if: steps.current.outputs.publish == 'true'
+        uses: actions/deploy-pages@v4
         id: deployment
