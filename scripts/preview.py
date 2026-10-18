@@ -3,6 +3,7 @@ from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 import argparse
+from security_policy import policy
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -11,6 +12,14 @@ class PreviewHandler(SimpleHTTPRequestHandler):
     def end_headers(self):
         self.send_header('Cache-Control', 'no-store')
         self.send_header('X-Content-Type-Options', 'nosniff')
+        self.send_header('X-Frame-Options', 'DENY')
+        self.send_header('Permissions-Policy', 'camera=(), microphone=(), geolocation=()')
+        # Preview enforces the host headers production must also configure.
+        route = self.translate_path(self.path)
+        candidate = Path(route)
+        if candidate.is_dir(): candidate /= 'index.html'
+        if candidate.suffix == '.html' and candidate.is_file():
+            self.send_header('Content-Security-Policy', policy(candidate.read_text(), header=True))
         self.send_header('Referrer-Policy', 'strict-origin-when-cross-origin')
         super().end_headers()
 

@@ -2,6 +2,10 @@
 import os
 import re
 from pathlib import Path
+try:
+    from .security_policy import protect_html
+except ImportError:
+    from security_policy import protect_html
 
 ROOT = Path(__file__).resolve().parents[1]
 START, END = '<!-- GA4 START -->', '<!-- GA4 END -->'
@@ -22,6 +26,9 @@ def inject(page, measurement_id):
   {END}
   '''
         text = text.replace('</head>', snippet + '</head>', 1)
+    # Refresh exact script hashes when the build already has a CSP.
+    if 'http-equiv="Content-Security-Policy"' in text:
+        text = protect_html(text)
     page.write_text(text)
 
 
