@@ -1,0 +1,67 @@
+name: Atualizar novidades das representadas
+
+on:
+  schedule:
+    - cron: '37 9 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: brand-updates
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  update:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci --ignore-scripts --no-fund
+      - run: npm run build:hero
+      - run: python -m pip install 'lxml>=5.3,<7'
+      - run: python scripts/brand_updates.py
+      - run: python scripts/render_updates.py
+      - run: python scripts/render_showcase.py
+      - run: python scripts/render_social_proof.py
+      - run: node scripts/sync-dist.mjs
+      - run: python -m unittest discover -s tests
+      - run: node --test tests/*.test.cjs
+      - name: Salvar conteúdo verificado
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/hero.html assets/ui dist/assets/ui data/brand-updates.json content/home.html content/representadas.html index.html representadas/index.html dist/index.html dist/representadas/index.html assets/novidades dist/assets/novidades
+          if ! git diff --cached --quiet; then
+            git commit -m 'Atualizar destaques das fontes oficiais'
+            git push
+          fi
+      - name: Configurar Analytics quando houver ID
+        env:
+          GA4_MEASUREMENT_ID: ${{ vars.GA4_MEASUREMENT_ID }}
+        run: python scripts/inject_ga4.py
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+  deploy:
+    needs: update
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publicar no GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
