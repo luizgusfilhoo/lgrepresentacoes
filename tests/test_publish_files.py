@@ -14,7 +14,8 @@ class PublishTests(unittest.TestCase):
         page = html.fromstring((ROOT/'fale-conosco/index.html').read_text())
         form = page.xpath('//form[@data-contact-form]')[0]
         self.assertIsNone(form.get('hidden'))
-        self.assertEqual(len(form.xpath('.//select[@name="recipient"]/option')), 5)
+        self.assertEqual(form.xpath('.//select[@name="recipient"]/option/text()'),
+                         page.xpath('//article[@class="contact-card"]/h4/text()'))
         self.assertEqual(len(form.xpath('.//button[@data-contact-send and @disabled]')), 2)
 
     def test_search_metadata_and_redirect(self):

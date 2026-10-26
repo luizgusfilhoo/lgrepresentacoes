@@ -19,7 +19,7 @@ class LocationContactTests(unittest.TestCase):
     def test_all_contacts_and_hours(self):
         section = PAGE.get_element_by_id('contato')
         content = section.text_content()
-        for name, digits, email in [('Luiz Filho','5581998940412','contateme.luizfilho@gmail.com'),('Luiz Gustavo','5581998960412','gustavo.lgrep@gmail.com'),('Allyson','5581992136841','allysonandrewwm@outlook.com'),('Manoel','5581998820412','comercial@lgrepresentacoes.com'),('Felipe','5581999857519','comercial@lgrepresentacoes.com')]:
+        for name, digits, email in [('Luiz Filho','5581998940412','contateme.luizfilho@gmail.com'),('Luiz Gustavo','5581998960412','gustavo.lgrep@gmail.com'),('Manoel','5581998820412','comercial@lgrepresentacoes.com'),('Felipe','5581999857519','comercial@lgrepresentacoes.com')]:
             with self.subTest(name=name):
                 self.assertIn(name,content)
                 self.assertIn(f'https://wa.me/{digits}',section.xpath('.//a/@href'))
@@ -29,6 +29,19 @@ class LocationContactTests(unittest.TestCase):
         self.assertEqual(content.count('8h às 18h'),5)
         self.assertIn('8h às 16h',content)
         self.assertIn('8h às 12h',content)
+
+    def test_current_team_matches_form_and_publication(self):
+        expected = ['Luiz Filho', 'Luiz Gustavo', 'Manoel', 'Felipe']
+        for path in ('content/contato.html', 'fale-conosco/index.html', 'dist/fale-conosco/index.html'):
+            with self.subTest(path=path):
+                markup = (ROOT / path).read_text(encoding='utf-8')
+                page = html.fromstring(markup)
+                self.assertEqual(page.xpath('//article[@class="contact-card"]/h4/text()'), expected)
+                self.assertEqual(page.xpath('//select[@name="recipient"]/option/text()'), expected)
+                self.assertEqual(page.xpath('//select[@name="recipient"]/option/@value'), ['0', '1', '2', '3'])
+                self.assertEqual(page.xpath('//*[@id="contact-grid"]/article/h4/text()'), expected[:2])
+                for retired in ('allyson', '5581992136841', '99213-6841'):
+                    self.assertNotIn(retired, markup.lower())
 
     def test_company_profile_is_selected_instead_of_typed(self):
         form = PAGE.xpath('//form[@data-contact-form]')[0]
