@@ -1,6 +1,7 @@
 import { build } from 'esbuild';
-import { execFileSync } from 'node:child_process';
-import { mkdir, writeFile, rm } from 'node:fs/promises';
+import { compile, optimize } from '@tailwindcss/node';
+import { Scanner } from '@tailwindcss/oxide';
+import { mkdir, readFile, writeFile, rm } from 'node:fs/promises';
 import { resolve, dirname } from 'node:path';
 import { pathToFileURL, fileURLToPath } from 'node:url';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -12,6 +13,16 @@ await build({ ...settings, entryPoints: ['src/hero.tsx'], outfile: 'assets/ui/he
 await build({ ...settings, entryPoints: ['src/hero-static.tsx'], outfile: temporary, platform: 'node', format: 'esm', packages: 'external' });
 const { renderHero } = await import(pathToFileURL(temporary));
 await writeFile(resolve(root, 'content/hero.html'), `<div id="lg-hero-root">${renderHero()}</div>`);
-execFileSync(resolve(root, 'node_modules/.bin/tailwindcss'), ['-i', 'styles/hero.css', '-o', 'assets/ui/hero.css', '--minify'], { cwd: root, stdio: 'inherit' });
+// This build is one-shot; the CLI's filesystem watcher is not needed.
+const input = resolve(root, 'styles/hero.css');
+const compiler = await compile(await readFile(input, 'utf8'), {
+  from: input, base: dirname(input), onDependency() {},
+});
+const sources = (compiler.root === 'none' ? [] : compiler.root === null
+  ? [{ base: root, pattern: '**/*', negated: false }]
+  : [{ ...compiler.root, negated: false }]).concat(compiler.sources);
+const scanner = new Scanner({ sources });
+const css = compiler.build(scanner.scan());
+await writeFile(resolve(root, 'assets/ui/hero.css'), optimize(css, { file: input, minify: true }).code);
 await rm(resolve(root, '.build'), { recursive: true, force: true });
 console.log('Hero React pré-renderizado e empacotado localmente.');
